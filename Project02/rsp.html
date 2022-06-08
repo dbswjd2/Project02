@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script type="text/javascript">
+	function myFunc(user) {	
+		var comp = parseInt(Math.random()*3) + 1;		
+		var msg = "";		
+		if (user == comp) {			
+			msg = "비겼습니다.";	
+			} 
+		else if (user%3 == (comp+1)%3) {			
+			msg = "사용자가 이겼습니다.";			
+			} 
+		else {			
+			msg = "컴퓨터가 이겼습니다.";					
+			}
+		
+		var imgArray = new Array();
+ 		imgArray[0] = '<img src="sissor.png" width="200px" height="200px">';
+		imgArray[1] = '<img src="rock.png" width="200px" height="200px">';
+		imgArray[2] = '<img src="paper.png" width="200px" height="200px">';
+
+		var arr = ["가위", "바위", "보"];
+		var str = "";		
+		str += "사용자:" + arr[user-1] + imgArray[user-1]+" vs 컴퓨터:" +imgArray[comp-1]+ arr[comp-1] + "<br>";		
+		str += msg +"<br>";	
+		var result = document.getElementById("result");
+		result.innerHTML = str;	
+	}
+	</script>
+    <style>    
+    </style>
+</head>
+<body>
+	<div>	
+		<h1>가위, 바위, 보 게임</h1>
+		<form>
+			<button type="button" class="btm_image" id="가위" onclick="myFunc(1)"><img src="sissor.png" width="200px" height="200px"></button>
+			<button type="button" class="btm_image" id="바위" onclick="myFunc(2)"><img src="rock.png" width="200px" height="200px"></button>
+			<button type="button" class="btm_image" id="보" onclick="myFunc(3)"><img src="paper.png" width="200px" height="200px"></button>
+		</form>	
+		<h2>  결과   </h2>	
+		<h3><div id="result"></div></h3>
+		</div>
+</body>
+</html>
